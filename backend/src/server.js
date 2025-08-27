@@ -17,11 +17,6 @@ app.use(cors({
 app.use(express.json());
 app.use(rateLimiter);
 
-app.use((req, res, next) => {
-  console.log(`Request Method: ${req.method}, Request URL: ${req.url}`);
-  next();
-});
-
 app.use("/api/notes", notesRoutes);
 
 connectDB().then(() => {
